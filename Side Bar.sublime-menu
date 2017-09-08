@@ -1,0 +1,8 @@
+[
+	{
+		"caption": "Exernal Diff Files…",
+		"id": "exteranl-diff",
+		"command": "external_diff_side_bar",
+		"args": {"files": []}
+	}
+]

@@ -1,0 +1,4 @@
+[
+   { "keys": ["ctrl+k", "ctrl+0"], "command": "external_diff"},
+   { "keys": ["ctrl+k", "ctrl+9"], "command": "external_diff_quick_panel"}
+]

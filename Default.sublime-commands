@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "ExternalDiff: external_diff",
+        "command": "external_diff"
+    },
+        {
+        "caption": "ExternalDiff: external_diff_quick_panel",
+        "command": "external_diff_quick_panel"
+    }
+]
