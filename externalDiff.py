@@ -36,15 +36,20 @@ class ExternalDiffBaseCmd(sublime_plugin.WindowCommand):
 class ExternalDiffCommand(ExternalDiffBaseCmd):
     def __init__(self, window):
         super(ExternalDiffCommand, self).__init__(window)
-        self.recent_deactived_file = ""
+        self.recent_file = ""
 
     def run(self, deactivated_file_name=None):
+        current_file = get_correct_file_name(self.window.active_view().file_name())
         if deactivated_file_name:
-            self.recent_deactived_file = get_correct_file_name(deactivated_file_name)
+            file_name = get_correct_file_name(deactivated_file_name)
+            if current_file != file_name:
+                self.recent_file = file_name
+                # sublime.status_message(current_file + "," + self.recent_file)
+            return
         else:
-            if self.recent_deactived_file:
-                self.run_external_diff([get_correct_file_name(self.window.active_view().file_name()),
-                    self.recent_deactived_file])
+            # sublime.status_message("1:" + current_file + "," + self.recent_file)
+            if self.recent_file != current_file:
+                self.run_external_diff([current_file, self.recent_file])
             else:
                 sublime.status_message("No recent file")
 
